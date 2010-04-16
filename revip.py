@@ -45,13 +45,18 @@ def usage():
 
 def get_ip_address(host):
     '''Gets IP addres of url.'''
+    ip_addr = None
+
     if not re.match('\d+\.\d+\.\d+\.\d+', host):
         if not host.startswith('www.'):
             host = 'www.{0}'.format(host)
-    try:
-        return socket.gethostbyname(host)
-    except:
-        return None
+        try:
+            ip_addr = socket.gethostbyname(host)
+        except:
+            pass
+    
+    return ip_addr
+
 
 def parse_options():
     '''Parses the command line options.'''
@@ -99,12 +104,12 @@ def main():
 
     header()
     if help: usage(); exit(0)
-    host = get_ip_address(host)
+    ip_addr = get_ip_address(host)
 
-    if host:
-        print '[+] Looking for domains associated with "{0}"...'.format(host)
+    if ip_addr:
+        print '[+] Looking for domains associated with "{0}"...'.format(ip_addr)
         
-        results = bing_ip_search(host)
+        results = bing_ip_search(ip_addr)
         res_count = len(results)
 
         if res_count > 0:
