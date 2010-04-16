@@ -24,7 +24,7 @@ from urllib2 import urlopen
 from xml.dom import minidom
 from optparse import OptionParser
 
-__version__ = '0.1b'
+__version__ = '0.1'
 
 BING_APP_ID = 'C2B36F733D8DCB48CE2E075CC145014122BE4724'
 
