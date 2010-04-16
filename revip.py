@@ -45,17 +45,15 @@ def usage():
 
 def get_ip_address(host):
     '''Gets IP addres of url.'''
-    ip_addr = None
-
     if not re.match('\d+\.\d+\.\d+\.\d+', host):
         if not host.startswith('www.'):
             host = 'www.{0}'.format(host)
         try:
-            ip_addr = socket.gethostbyname(host)
+            return socket.gethostbyname(host)
         except:
-            pass
-    
-    return ip_addr
+            return None
+
+    return host
 
 
 def parse_options():
