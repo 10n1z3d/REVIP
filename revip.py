@@ -41,7 +41,6 @@ def usage():
     print 'Usage: python revip.py <ip/host> [options]'
     print 'Options:'
     print '      -o, --output_file=<filename>   Specify output file name'
-    print '      -v, --verbose                  Verbose mode\n'
 
 def get_ip_address(host):
     '''Gets IP addres of url.'''
